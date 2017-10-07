@@ -91,7 +91,8 @@ if [ -n "${BASH_VERSION}" ]; then
         local background_cyan='\e[46m'
         local background_white='\e[47m'
         
-        local reset='\e[0m'     # Text Reset]'
+        local reset='\e[0m'     # COMPLETE   Reset
+        local resetbg='\e[49m'  # Background Reset
 
         local black_on_white="${black}${background_white}"
         local yellow_on_white="${yellow}${background_white}"
@@ -159,7 +160,7 @@ if [ -n "${BASH_VERSION}" ]; then
                 fi
             fi
             prompt+=$(enrich_append ${is_on_a_tag} "${omg_is_on_a_tag_symbol} ${tag_at_current_commit}" "${black_on_red}")
-            prompt+="${reset}${red}${reset}\n"
+            prompt+="${resetbg}${red}${reset}\n"
             prompt+="$(eval_prompt_callback_if_present)"
             prompt+="${omg_second_line}"
         else
